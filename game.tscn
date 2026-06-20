@@ -3,3 +3,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="Snake" type="Node2D" parent="."]
+
+[node name="Head" type="Sprite2D" parent="Snake"]
+
+[node name="BodyContainer" type="Node2D" parent="Snake"]
