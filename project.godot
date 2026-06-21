@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Snake_Godot"
-run/main_scene="uid://dekhybqvkuw2h"
+run/main_scene="uid://4cqskiolhppw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[gui]
+
+theme/custom_font="uid://c4aippey1ikg3"
 
 [input]
 
