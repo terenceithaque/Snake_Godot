@@ -35,25 +35,21 @@ func update_head_sprite():
 func _process(float) -> void:
 	if Input.is_action_pressed("move_down"):
 		print("Déplacement vers le bas")
+		direction = Vector2i.DOWN
 		update_head_sprite()
 	
 	elif Input.is_action_pressed("move_up"):
 		print("Déplacement vers le haut")
+		direction = Vector2i.UP
 		update_head_sprite()
 	
 	elif Input.is_action_pressed("move_left"):
 		print("Déplacement vers la gauche")
+		direction = Vector2i.LEFT
 		update_head_sprite()
 	
 	elif Input.is_action_pressed("move_right"):
 		print("Déplacement vers la droite")
+		direction = Vector2i.RIGHT
 		update_head_sprite()
 	
-	else:
-		print("Aucun déplacement")			
-	
-	
-	print(get_local_mouse_position())	
-
-func _ready():
-	pass
