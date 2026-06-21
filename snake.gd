@@ -5,14 +5,17 @@ extends Node2D
 
 @onready var head_sprite = $Head
 
-var head_up : Texture2D
-var head_down : Texture2D
-var head_left : Texture2D
-var head_right : Texture2D
+var head_up = preload("res://assets/images/head_up.png")
+var head_down = preload("res://assets/images/head_down.png")
+var head_left = preload("res://assets/images/head_left.png")
+var head_right = preload("res://assets/images/head_right.png")
+
 
 # Direction actuelle du serpent
 var direction = Vector2i.LEFT
 
+func _ready():
+	print(head_up)
 
 func update_head_sprite():
 	"""Met à jour le sprite de la tête du serpent selon la direction."""

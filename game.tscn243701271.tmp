@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dekhybqvkuw2h"]
+
+[ext_resource type="Texture2D" uid="uid://bhcycugc1n8r7" path="res://assets/images/head_left.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://b1jufvfs4bt0y" path="res://snake.gd" id="1_e2o6t"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Snake" type="Node2D" parent="."]
+script = ExtResource("1_e2o6t")
+
+[node name="Head" type="Sprite2D" parent="Snake"]
+position = Vector2(125, 200)
+scale = Vector2(2.893, 3)
+texture = ExtResource("1_80nbo")
+
+[node name="BodyContainer" type="Node2D" parent="Snake"]
