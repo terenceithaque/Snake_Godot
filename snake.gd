@@ -29,7 +29,6 @@ func _ready():
 	# Récupérer le noeud BodyContainer
 	var body_container = $BodyContainer
 
-
 func update_head_sprite():
 	"""Met à jour le sprite de la tête du serpent selon la direction."""
 	
