@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4cqskiolhppw"]
+[gd_scene load_steps=3 format=3 uid="uid://4cqskiolhppw"]
 
 [ext_resource type="Script" uid="uid://e3v4pua4oyh8" path="res://title_screen.gd" id="1_v6p8y"]
+[ext_resource type="AudioStream" uid="uid://55bi4dnuec02" path="res://assets/music/title_screen.ogg" id="2_ak2if"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -33,6 +34,10 @@ text = "Jouer"
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quitter"
+
+[node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ak2if")
+parameters/looping = false
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

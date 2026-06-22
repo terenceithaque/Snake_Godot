@@ -49,16 +49,23 @@ func update_head_sprite():
 
 
 func _process(float) -> void:
+	"""Fonction principale du jeu."""
 	
+	# Si le joueur appuie sur la touche de pause (espace)
 	if Input.is_action_just_pressed("pause"):
+		
+		# Désactiver la pause si elle est déjà active
 		if pause == true:
 			pause = false
 		
+		# Sinon, activer la pause
 		else:
 			pause = true
 	
 	# Si la pause n'est pas active		
-	if not pause:			
+	if not pause:
+		
+		# Vérifier les autres événements éventuellement déclenchés			
 		if Input.is_action_pressed("move_down"):
 			print("Déplacement vers le bas")
 			direction = Vector2i.DOWN

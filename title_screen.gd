@@ -10,6 +10,10 @@ func _ready() -> void:
 	var play_button = get_node("PanelContainer/VBoxContainer/PlayButton")
 	var quit_button = get_node("PanelContainer/VBoxContainer/QuitButton")
 	
+	# Musique du menu
+	var title_music = $TitleMusic
+	title_music.play()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
