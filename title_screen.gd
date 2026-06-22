@@ -30,3 +30,8 @@ func _on_play_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	"""Quitte le jeu"""
 	get_tree().quit() # Quitter le jeu
+
+
+func _on_title_music_finished() -> void:
+	"""Relance la musique du menu quand elle est terminée."""
+	get_node("TitleMusic").play()

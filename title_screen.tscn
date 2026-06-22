@@ -41,3 +41,4 @@ parameters/looping = false
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="TitleMusic" to="." method="_on_title_music_finished"]
