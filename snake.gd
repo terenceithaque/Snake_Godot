@@ -10,12 +10,25 @@ var head_down = preload("res://assets/images/head_down.png")
 var head_left = preload("res://assets/images/head_left.png")
 var head_right = preload("res://assets/images/head_right.png")
 
-
 # Direction actuelle du serpent
 var direction = Vector2i.LEFT
 
+# Variable d'état de la pause
+var pause = false
+
+# Tableau des positions du serpent
+var positions = [
+	Vector2(0, 0),
+	Vector2(1, 0),
+	Vector2(3, 0),
+	Vector2(4, 0),
+	Vector2(5, 0)
+]
+
 func _ready():
-	print(head_up)
+	# Récupérer le noeud BodyContainer
+	var body_container = $BodyContainer
+
 
 func update_head_sprite():
 	"""Met à jour le sprite de la tête du serpent selon la direction."""
@@ -36,23 +49,33 @@ func update_head_sprite():
 
 
 func _process(float) -> void:
-	if Input.is_action_pressed("move_down"):
-		print("Déplacement vers le bas")
-		direction = Vector2i.DOWN
-		update_head_sprite()
 	
-	elif Input.is_action_pressed("move_up"):
-		print("Déplacement vers le haut")
-		direction = Vector2i.UP
-		update_head_sprite()
+	if Input.is_action_just_pressed("pause"):
+		if pause == true:
+			pause = false
+		
+		else:
+			pause = true
 	
-	elif Input.is_action_pressed("move_left"):
-		print("Déplacement vers la gauche")
-		direction = Vector2i.LEFT
-		update_head_sprite()
-	
-	elif Input.is_action_pressed("move_right"):
-		print("Déplacement vers la droite")
-		direction = Vector2i.RIGHT
-		update_head_sprite()
+	# Si la pause n'est pas active		
+	if not pause:			
+		if Input.is_action_pressed("move_down"):
+			print("Déplacement vers le bas")
+			direction = Vector2i.DOWN
+			update_head_sprite()
+		
+		elif Input.is_action_pressed("move_up"):
+			print("Déplacement vers le haut")
+			direction = Vector2i.UP
+			update_head_sprite()
+		
+		elif Input.is_action_pressed("move_left"):
+			print("Déplacement vers la gauche")
+			direction = Vector2i.LEFT
+			update_head_sprite()
+		
+		elif Input.is_action_pressed("move_right"):
+			print("Déplacement vers la droite")
+			direction = Vector2i.RIGHT
+			update_head_sprite()
 	
