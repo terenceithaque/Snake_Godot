@@ -61,6 +61,28 @@ func _ready():
 	var body_sprite = get_node("BodyContainer/BodyElement")
 	print(grille)
 
+
+func move_left():
+	"""Déplace le serpent vers la gauche."""
+	pass
+
+
+func move_right():
+	"""Déplace le serpent vers la droite."""
+	pass
+
+
+func move_up():
+	"""Déplace le serpent vers le haut."""
+	pass
+
+
+func move_down():
+	"""Déplace le serpent vers le bas."""
+	pass	
+			
+	
+
 func update_head_sprite():
 	"""Met à jour le sprite de la tête du serpent selon la direction."""
 	
@@ -103,21 +125,25 @@ func _process(float) -> void:
 			print("Déplacement vers le bas")
 			direction = Vector2i.DOWN
 			update_head_sprite()
+			move_down() # Déplacer le serpent vers le bas
 		
 		elif Input.is_action_pressed("move_up"):
 			print("Déplacement vers le haut")
 			direction = Vector2i.UP
 			update_head_sprite()
+			move_up() # Déplacer le serpent vers le haut
 		
 		elif Input.is_action_pressed("move_left"):
 			print("Déplacement vers la gauche")
 			direction = Vector2i.LEFT
 			update_head_sprite()
+			move_left() # Déplacer le serpent vers la gauche
 		
 		elif Input.is_action_pressed("move_right"):
 			print("Déplacement vers la droite")
 			direction = Vector2i.RIGHT
 			update_head_sprite()
+			move_right() # Déplacer le serpent vers la droite
 	
 	else:
 		print(get_local_mouse_position())
