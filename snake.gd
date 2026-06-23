@@ -9,6 +9,7 @@ var head_up = preload("res://assets/images/head_up.png")
 var head_down = preload("res://assets/images/head_down.png")
 var head_left = preload("res://assets/images/head_left.png")
 var head_right = preload("res://assets/images/head_right.png")
+var body_sprite = preload("res://assets/images/body_element.png")
 
 # Direction actuelle du serpent
 var direction = Vector2i.LEFT
@@ -20,6 +21,21 @@ var pause = false
 # Dimensions de la grille de jeu
 var grid_width := 6
 var grid_height := 6
+
+
+
+func generer_corps(taille:int=4) -> Array:
+	"""Prend en paramètres un entier taille.
+	Renvoie un tableau de sprites constituant le corps du serpent."""
+	
+	var body := []
+	
+	for n in range(taille):
+		var sprite = Sprite2D.new()
+		sprite.texture = body_sprite
+		body.append(sprite)	
+	
+	return body
 
 func generer_grille(grid_width:int, grid_height:int) -> Array:
 	var grid := []
