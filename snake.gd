@@ -16,6 +16,29 @@ var direction = Vector2i.LEFT
 # Variable d'état de la pause
 var pause = false
 
+
+# Dimensions de la grille de jeu
+var grid_width := 6
+var grid_height := 6
+
+func generer_grille(grid_width:int, grid_height:int) -> Array:
+	var grid := []
+	
+	for l in range(grid_height):
+		
+		var ligne := []
+		for c in range(grid_width):
+			
+			ligne.append(Vector2i(c, l))
+		
+		grid.append(ligne)	
+		
+	
+	return grid		
+
+
+
+
 # Tableau des positions du serpent
 var positions = [
 	Vector2(0, 0),
@@ -25,9 +48,13 @@ var positions = [
 	Vector2(5, 0)
 ]
 
+var grille = generer_grille(6, 6)
+
 func _ready():
 	# Récupérer le noeud BodyContainer
 	var body_container = $BodyContainer
+	var body_sprite = get_node("BodyContainer/BodyElement")
+	print(grille)
 
 func update_head_sprite():
 	"""Met à jour le sprite de la tête du serpent selon la direction."""
@@ -49,6 +76,8 @@ func update_head_sprite():
 
 func _process(float) -> void:
 	"""Fonction principale du jeu."""
+	
+
 	
 	# Si le joueur appuie sur la touche de pause (espace)
 	if Input.is_action_just_pressed("pause"):

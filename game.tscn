@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dekhybqvkuw2h"]
+[gd_scene load_steps=6 format=3 uid="uid://dekhybqvkuw2h"]
 
 [ext_resource type="Texture2D" uid="uid://bhcycugc1n8r7" path="res://assets/images/head_left.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://b1jufvfs4bt0y" path="res://snake.gd" id="1_e2o6t"]
 [ext_resource type="AudioStream" uid="uid://bmsgmt71cwegi" path="res://assets/music/game.ogg" id="3_feb5d"]
+[ext_resource type="Texture2D" uid="uid://boaji7wx8u2j6" path="res://assets/images/body_element.png" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://dycphmfs24k8j" path="res://game_music.gd" id="4_fc0e3"]
 
 [node name="Game" type="Node2D"]
@@ -17,6 +18,10 @@ scale = Vector2(2.893, 3)
 texture = ExtResource("1_80nbo")
 
 [node name="BodyContainer" type="Node2D" parent="Snake"]
+
+[node name="BodyElement" type="Sprite2D" parent="Snake/BodyContainer"]
+position = Vector2(0, 1)
+texture = ExtResource("4_7jktm")
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_feb5d")
