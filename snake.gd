@@ -37,6 +37,11 @@ func generer_grille(grid_width:int, grid_height:int) -> Array:
 	return grid		
 
 
+func position_cartesienne(grille:Array, l:int, c:int) -> Vector2i:
+	"""Prend en paramètres une grille, une ligne l et une colonne c.
+	Renvoie les coordonnées cartésiennes de la case située à la ligne l et à la colonne c."""
+	
+	return Vector2i(l*10, c*10)
 
 
 # Tableau des positions du serpent
@@ -48,7 +53,7 @@ var positions = [
 	Vector2(5, 0)
 ]
 
-var grille = generer_grille(6, 6)
+var grille = generer_grille(11, 11)
 
 func _ready():
 	# Récupérer le noeud BodyContainer
@@ -114,3 +119,5 @@ func _process(float) -> void:
 			direction = Vector2i.RIGHT
 			update_head_sprite()
 	
+	else:
+		print(get_local_mouse_position())
