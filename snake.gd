@@ -115,7 +115,7 @@ func move_up():
 		
 	# Repositionner la tête si elle sort de l'écran
 	if head_sprite.position.y < 0:
-		head_sprite.position.y = 8
+		head_sprite.position.y = 620
 
 
 func move_down():
