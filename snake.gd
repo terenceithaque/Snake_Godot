@@ -85,6 +85,14 @@ func move_left():
 	
 	# Déplacer la tête
 	head_sprite.move_local_x(-5)
+	
+	
+	
+	# Repositionner la tête si elle sort de l'écran
+	if head_sprite.position.x < 0:
+		head_sprite.position.x = 1100
+	
+	
 
 
 func move_right():
@@ -92,13 +100,22 @@ func move_right():
 	
 	# Déplacer la tête
 	head_sprite.move_local_x(5)
-
+	
+	var window_size = DisplayServer.window_get_size()
+	
+	# Repositionner la tête si elle sort de l'écran
+	if head_sprite.position.x > window_size.x:
+		head_sprite.position.x = 8
 
 func move_up():
 	"""Déplace le serpent vers le haut."""
 	
 	# Déplacer la tête
 	head_sprite.move_local_y(-5)
+		
+	# Repositionner la tête si elle sort de l'écran
+	if head_sprite.position.y < 0:
+		head_sprite.position.y = 8
 
 
 func move_down():
@@ -106,6 +123,11 @@ func move_down():
 	
 	# Déplacer la tête
 	head_sprite.move_local_y(5)
+	
+	var window_size = DisplayServer.window_get_size()
+	
+	if head_sprite.position.y > window_size.y:
+		head_sprite.position.y = 8
 			
 	
 
