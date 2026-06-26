@@ -59,6 +59,10 @@ func position_cartesienne(grille:Array, l:int, c:int) -> Vector2i:
 	
 	return Vector2i(l*10, c*10)
 
+func position_grille(x:int, y:int) -> Vector2i:
+	"""Convertit une position décrite avec des coordonnées cartésiennes en position dans une grille."""
+	
+	return Vector2i(int(x/10), int(y/10))
 
 # Tableau des positions du serpent
 var positions = [
@@ -126,6 +130,7 @@ func move_down():
 	
 	var window_size = DisplayServer.window_get_size()
 	
+	# Repositionner la tête si elle sort de l'écran
 	if head_sprite.position.y > window_size.y:
 		head_sprite.position.y = 8
 			
