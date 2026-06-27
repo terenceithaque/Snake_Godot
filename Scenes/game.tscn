@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dekhybqvkuw2h"]
+
+[ext_resource type="Script" uid="uid://dycphmfs24k8j" path="res://Scenes/Scripts/game_music.gd" id="1_wowpa"]
+[ext_resource type="Script" uid="uid://b1jufvfs4bt0y" path="res://Scenes/Scripts/snake.gd" id="2_i6g32"]
+[ext_resource type="Texture2D" uid="uid://bhcycugc1n8r7" path="res://assets/images/head_left.png" id="3_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://boaji7wx8u2j6" path="res://assets/images/body_element.png" id="4_v158k"]
+[ext_resource type="AudioStream" uid="uid://bmsgmt71cwegi" path="res://assets/music/game.ogg" id="5_h4fw4"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wowpa")
+
+[node name="Snake" type="Node2D" parent="."]
+script = ExtResource("2_i6g32")
+
+[node name="Head" type="Sprite2D" parent="Snake"]
+position = Vector2(125, 200)
+scale = Vector2(2.893, 3)
+texture = ExtResource("3_1l0tm")
+
+[node name="BodyContainer" type="Node2D" parent="Snake"]
+
+[node name="BodyElement" type="Sprite2D" parent="Snake/BodyContainer"]
+position = Vector2(0, 1)
+texture = ExtResource("4_v158k")
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_h4fw4")
+
+[connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]
+[connection signal="finished" from="GameMusic" to="Snake" method="_on_game_music_finished"]

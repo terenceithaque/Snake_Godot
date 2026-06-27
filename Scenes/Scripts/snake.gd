@@ -19,7 +19,7 @@ var pause = false
 
 
 # Charger la grille de jeu
-var grille = preload("res://grid.gd")
+var grille = preload("res://Scenes/Scripts/grid.gd")
 var grille_jeu = grille.new(11, 11) # Grille de jeu
 
 

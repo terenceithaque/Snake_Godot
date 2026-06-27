@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4cqskiolhppw"]
 
-[ext_resource type="Script" uid="uid://e3v4pua4oyh8" path="res://title_screen.gd" id="1_v6p8y"]
-[ext_resource type="AudioStream" uid="uid://55bi4dnuec02" path="res://assets/music/title_screen.ogg" id="2_ak2if"]
+[ext_resource type="Script" uid="uid://e3v4pua4oyh8" path="res://Scenes/Scripts/title_screen.gd" id="1_p3fck"]
+[ext_resource type="AudioStream" uid="uid://55bi4dnuec02" path="res://assets/music/title_screen.ogg" id="2_4gxqj"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ offset_right = -384.0
 offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v6p8y")
+script = ExtResource("1_p3fck")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -36,7 +36,7 @@ layout_mode = 2
 text = "Quitter"
 
 [node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_ak2if")
+stream = ExtResource("2_4gxqj")
 parameters/looping = false
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
