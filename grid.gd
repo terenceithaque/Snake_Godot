@@ -34,9 +34,12 @@ func coordonnees_cartesiennes(l:int, c:int) -> Vector2i:
 func coordonnees_grille(x:int, y:int) -> Vector2i:
 	"""Renvoie les coordonnées de la case correspondant à x et y des coordonnées cartésiennes."""
 	
+	var ligne = clamp(y / taille_case.y, 0, tableau.size() -1)
+	var colonne = clamp(x / taille_case.x, 0, tableau[0].size() -1)
+	
 	return Vector2i(
-		y / taille_case.y,
-		x / taille_case.x
+		ligne,
+		colonne
 	)
 		
 				
