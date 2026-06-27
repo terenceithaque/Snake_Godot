@@ -18,9 +18,10 @@ var direction = Vector2i.LEFT
 var pause = false
 
 
-# Dimensions de la grille de jeu
-var grid_width := 6
-var grid_height := 6
+# Charger la grille de jeu
+var grille = preload("res://grid.gd")
+var grille_jeu = grille.new(11, 11) # Grille de jeu
+
 
 
 
@@ -59,9 +60,6 @@ func _ready():
 	# Récupérer le noeud BodyContainer
 	var body_container = $BodyContainer
 	var body_sprite = get_node("BodyContainer/BodyElement")
-	var grille = preload("res://grid.gd")
-	var grille_jeu = grille.new(11, 11) # Grille de jeu
-	print(grille_jeu.tableau)
 	
 	
 
@@ -204,4 +202,5 @@ func _process(float) -> void:
 		
 		deplacer_serpent() # Déplacer le serpent
 	else:
-		print(get_local_mouse_position())
+		var pos_souris = get_local_mouse_position()
+		print(pos_souris, grille_jeu.coordonnees_grille(pos_souris[0], pos_souris[1]))
