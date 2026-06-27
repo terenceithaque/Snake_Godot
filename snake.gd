@@ -36,52 +36,34 @@ func generer_corps(taille:int=4) -> Array:
 		body.append(sprite)
 	
 	return body
-
-func generer_grille(grid_width:int, grid_height:int) -> Array:
-	var grid := []
 	
-	for l in range(grid_height):
-		
-		var ligne := []
-		for c in range(grid_width):
-			
-			ligne.append(Vector2i(c, l))
-		
-		grid.append(ligne)	
-		
-	
-	return grid		
 
 
-func position_cartesienne(grille:Array, l:int, c:int) -> Vector2i:
-	"""Prend en paramètres une grille, une ligne l et une colonne c.
-	Renvoie les coordonnées cartésiennes de la case située à la ligne l et à la colonne c."""
-	
-	return Vector2i(l*10, c*10)
 
-func position_grille(x:int, y:int) -> Vector2i:
-	"""Convertit une position décrite avec des coordonnées cartésiennes en position dans une grille."""
-	
-	return Vector2i(int(x/10), int(y/10))
-
-# Tableau des positions du serpent
-var positions = [
+# Positions des différentes parties du corps du serpent (tête à la queue)
+var positions_corps = [
 	Vector2(0, 0),
 	Vector2(1, 0),
 	Vector2(3, 0),
 	Vector2(4, 0),
 ]
 
-var grille = generer_grille(11, 11)
 
 var body_sprites = generer_corps(4)
+
+var snake = [head_sprite] + body_sprites
+
 
 
 func _ready():
 	# Récupérer le noeud BodyContainer
 	var body_container = $BodyContainer
 	var body_sprite = get_node("BodyContainer/BodyElement")
-	print(grille)
+	var grille = preload("res://grid.gd")
+	var grille_jeu = grille.new(11, 11) # Grille de jeu
+	print(grille_jeu.tableau)
+	
+	
 
 
 func move_left():
@@ -91,12 +73,15 @@ func move_left():
 	head_sprite.move_local_x(-5)
 	
 	
-	
 	# Repositionner la tête si elle sort de l'écran
 	if head_sprite.position.x < 0:
 		head_sprite.position.x = 1100
 	
-	
+	# Déplacement des éléments du corps
+	"""for i in range(1, len(snake)):
+		var body_element = body_sprites[i]"""
+		
+		
 
 
 func move_right():
