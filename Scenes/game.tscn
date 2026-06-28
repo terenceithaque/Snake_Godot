@@ -20,7 +20,8 @@ texture = ExtResource("3_1l0tm")
 [node name="BodyContainer" type="Node2D" parent="Snake"]
 
 [node name="BodyElement" type="Sprite2D" parent="Snake/BodyContainer"]
-position = Vector2(0, 1)
+position = Vector2(4.5, 13.500004)
+scale = Vector2(3, 3.457)
 texture = ExtResource("4_v158k")
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]

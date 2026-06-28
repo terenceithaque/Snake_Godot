@@ -20,8 +20,7 @@ var pause = false
 
 # Charger la grille de jeu
 var grille = preload("res://Scenes/Scripts/grid.gd")
-var grille_jeu = grille.new(11, 11) # Grille de jeu
-
+var grille_jeu = grille.new(20, 31) # Grille de jeu
 
 
 
@@ -30,6 +29,7 @@ func generer_corps(taille:int=4) -> Array:
 	Renvoie un tableau de sprites constituant le corps du serpent."""
 	
 	var body := []
+	print(body_sprite)
 	
 	for n in range(taille):
 		var sprite = Sprite2D.new()
@@ -41,7 +41,7 @@ func generer_corps(taille:int=4) -> Array:
 
 
 
-# Positions des différentes parties du corps du serpent (tête à la queue)
+# Positions des différentes parties du corps du serpent
 var positions_corps = [
 	Vector2(0, 0),
 	Vector2(1, 0),
@@ -50,18 +50,26 @@ var positions_corps = [
 ]
 
 
-var body_sprites = generer_corps(4)
-
-var snake = [head_sprite] + body_sprites
 
 
+var body_sprites = generer_corps(4) # Tableau des sprites du corps
 
 func _ready():
 	# Récupérer le noeud BodyContainer
 	var body_container = $BodyContainer
-	var body_sprite = get_node("BodyContainer/BodyElement")
+	#var body_sprite = get_node("BodyContainer/BodyElement")
+	
+	for i in range(len(body_sprites)):
+		var sprite = body_sprites[i]
+		print(sprite)
+		var sprite_pos = positions_corps[i]
+		sprite.position = sprite_pos
+		body_container.add_child(sprite)
 	
 	
+
+
+var snake = [head_sprite] + body_sprites
 
 
 func move_left():
@@ -179,24 +187,20 @@ func _process(float) -> void:
 		
 		# Vérifier les autres événements éventuellement déclenchés			
 		if Input.is_action_pressed("move_down"):
-			print("Déplacement vers le bas")
 			direction = Vector2i.DOWN
 			update_head_sprite()
 			
 		
 		elif Input.is_action_pressed("move_up"):
-			print("Déplacement vers le haut")
 			direction = Vector2i.UP
 			update_head_sprite()
 			
 		
 		elif Input.is_action_pressed("move_left"):
-			print("Déplacement vers la gauche")
 			direction = Vector2i.LEFT
 			update_head_sprite()
 		
 		elif Input.is_action_pressed("move_right"):
-			print("Déplacement vers la droite")
 			direction = Vector2i.RIGHT
 			update_head_sprite()
 		

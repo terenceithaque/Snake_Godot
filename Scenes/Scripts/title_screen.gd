@@ -4,7 +4,7 @@ extends Control
 
 func _ready() -> void:
 	
-	# Récupérer les différents boutons du menu
+	# Récupérer les différents boutons du menu 
 	var panel_container = $PanelContainer
 	var title_label = get_node("PanelContainer/VBoxContainer/Title")
 	var play_button = get_node("PanelContainer/VBoxContainer/PlayButton")
