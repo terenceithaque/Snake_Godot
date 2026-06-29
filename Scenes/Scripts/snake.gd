@@ -57,13 +57,17 @@ var body_sprites = generer_corps(4) # Tableau des sprites du corps
 func _ready():
 	# Récupérer le noeud BodyContainer
 	var body_container = $BodyContainer
+	body_container.position = Vector2.ZERO
 	#var body_sprite = get_node("BodyContainer/BodyElement")
 	
 	for i in range(len(body_sprites)):
 		var sprite = body_sprites[i]
 		print(sprite)
 		var sprite_pos = positions_corps[i]
-		sprite.position = sprite_pos
+		var coords_cartesiennes = grille_jeu.coordonnees_cartesiennes(sprite_pos.x, sprite_pos.y)
+		print("Coordonnées cartésiennes du sprite du corps :", coords_cartesiennes)
+		sprite.position.x = coords_cartesiennes.x
+		sprite.position.y = coords_cartesiennes.y
 		body_container.add_child(sprite)
 	
 	
