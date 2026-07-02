@@ -22,6 +22,15 @@ var pause = false
 var grille = preload("res://Scenes/Scripts/grid.gd")
 var grille_jeu = grille.new(20, 31) # Grille de jeu
 
+func positions_actuelles(sprites:Array) -> Array:
+	"""Renvoie la liste des positions dans la grille de jeu de chaque sprite de la liste sprites."""
+	
+	var positions = []
+	
+	for sprite in sprites:
+		positions.append(grille_jeu.coordonnees_grille(sprite.position.x, sprite.position.y))
+	
+	return positions
 
 
 func generer_corps(taille:int=4) -> Array:
@@ -88,8 +97,10 @@ func move_left():
 		head_sprite.position.x = 1100
 	
 	# Déplacement des éléments du corps
-	"""for i in range(1, len(snake)):
-		var body_element = body_sprites[i]"""
+	for i in range(1, len(snake) -1):
+		var body_element = body_sprites[i]
+		var precedent = body_sprites[i-1]
+		body_element.position = precedent.position
 		
 		
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dekhybqvkuw2h"]
+[gd_scene format=3 uid="uid://dekhybqvkuw2h"]
 
 [ext_resource type="Script" uid="uid://dycphmfs24k8j" path="res://Scenes/Scripts/game_music.gd" id="1_wowpa"]
 [ext_resource type="Script" uid="uid://b1jufvfs4bt0y" path="res://Scenes/Scripts/snake.gd" id="2_i6g32"]
@@ -8,28 +8,28 @@
 [ext_resource type="Texture2D" uid="uid://blbq6up616git" path="res://assets/images/raspberry.png" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://bswq3xpd1er6y" path="res://Scenes/Scripts/fruit.gd" id="7_1l0tm"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1234851528]
 script = ExtResource("1_wowpa")
 
-[node name="Snake" type="Node2D" parent="."]
+[node name="Snake" type="Node2D" parent="." unique_id=1269011167]
 script = ExtResource("2_i6g32")
 
-[node name="Head" type="Sprite2D" parent="Snake"]
+[node name="Head" type="Sprite2D" parent="Snake" unique_id=126585540]
 position = Vector2(125, 200)
 scale = Vector2(2.893, 3)
 texture = ExtResource("3_1l0tm")
 
-[node name="BodyContainer" type="Node2D" parent="Snake"]
+[node name="BodyContainer" type="Node2D" parent="Snake" unique_id=715053481]
 
-[node name="BodyElement" type="Sprite2D" parent="Snake/BodyContainer"]
+[node name="BodyElement" type="Sprite2D" parent="Snake/BodyContainer" unique_id=1162459116]
 position = Vector2(100, 100)
 scale = Vector2(15, 17.286)
 texture = ExtResource("4_v158k")
 
-[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="." unique_id=569547602]
 stream = ExtResource("5_h4fw4")
 
-[node name="Fruit" type="Sprite2D" parent="."]
+[node name="Fruit" type="Sprite2D" parent="." unique_id=461613198]
 texture = ExtResource("6_i6g32")
 script = ExtResource("7_1l0tm")
 
